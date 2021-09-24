@@ -1,41 +1,37 @@
 //Write a program to search an element in a 2-D array using linear search
-#include<stdio.h>
-#include<stdlib.h>
+#include <iostream>
+using namespace std;
 
-int main()
-{
-       int n,i,j,search,c=0;
-       printf("Enter the required size of Matrix.\n");
-       scanf("%d",&n);
-       int **a;
-       a = malloc(n*sizeof(int*));
-
-       for(i=0;i<n;i++)
-       {
-              a[i] = malloc(n*sizeof(int));
-              for(j=0;j<n;j++)
-              {
-                     printf("a[%d,%d] : ",i+1,j+1);
-                     scanf("%d",&a[i][j]);
-              }
-       }
-       printf("Enter the element you need to search: ");
-       scanf("%d",&search);
-
-       for(i=0;i<n;i++)
-       {
-              for(j=0;j<n;j++)
-              {
-                     if(search == a[i][j])
-                     {
-                           printf("The element %d is present at position a[%d,%d].\n",search,i+1,j+1);
-                           c++;
-                     }
-              }
-       }
-       if(c==0)
-       {
-              printf("Element not found.\n");
-       }
-       return 0;
+int main(){
+    int i,j,value,rows,columns,check=0;
+    
+    cout<<"Enter number of rows: ";
+    cin>>rows;
+    cout<<"Enter number of columns: ";
+    cin>>columns;
+    int arr[rows][columns];
+    cout<<"please enter the elements of array"<<endl;
+    for (i=0;i<rows;i++){
+        for(j=0;j<columns;j++){
+            cout<<"element "<<"("<<i<<','<<j<<"): ";
+            cin>>arr[i][j];
+        }
+    }
+    
+    cout<<"Enter the element you need to search: ";
+    cin>>value;
+    
+    for (i=0;i<rows;i++){
+        for (j=0;j<columns;j++){
+            if (value == arr[i][j]){
+                cout<<value<<" found at position " << " ("<<i<<','<<j<<")"<<endl;
+                check = 1;
+            }
+        }
+    }
+    if (check == 0){
+        cout<<value<<" element not found"<<endl;
+    }
+    
+    return 0;
 }
